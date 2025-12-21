@@ -1,1 +1,1 @@
-# youtube-description-generator
+# YouTube Description Generator
