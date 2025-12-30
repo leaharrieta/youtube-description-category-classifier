@@ -3,12 +3,20 @@ from collections import Counter
 
 INPUT_FILE = "data/cleaned_dataset.csv"
 
+STOPWORDS = {
+    "the", "and", "to", "of", "in", "a", "is", "on", "for", "with",
+    "that", "this", "it", "you", "i", "my", "we", "our", "your",
+    "are", "be", "as", "at", "by", "from", "or", "an", "&", ":", "-", "twitter:"
+}
+
 # def tokenize() - A function that ignores non-string characters and returns
 # text in lowercase form and split into tokens
 def tokenize(text):
     if not isinstance(text, str):
         return []
-    return text.lower().split()
+        
+    tokens = text.lower().split()
+    return [t for t in tokens if t not in STOPWORDS]
 
 def main():
     df = pd.read_csv(INPUT_FILE)
@@ -18,6 +26,9 @@ def main():
     # Tokenize descriptions
     df["tokens"] = df["Description"].apply(tokenize)
 
+    # Drop rows with no tokens
+    df = df[df["tokens"].map(len) > 0]
+
     # Get the word count of each description
     df["word_count"] = df["tokens"].apply(len)
 
@@ -26,10 +37,9 @@ def main():
 
     # Tokenize the entire dataset into a single list
     all_tokens = []
-    for i in df["tokens"]:
-        for j in i:
-            all_tokens.append(j)
-
+    for token_list in df["tokens"]:
+        for token in token_list:
+            all_tokens.append(token)
 
     # Vocabulary size, set of all unique words used anywhere in the dataset
     vocab = set(all_tokens)
