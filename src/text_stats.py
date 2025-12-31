@@ -6,7 +6,8 @@ INPUT_FILE = "data/cleaned_dataset.csv"
 STOPWORDS = {
     "the", "and", "to", "of", "in", "a", "is", "on", "for", "with",
     "that", "this", "it", "you", "i", "my", "we", "our", "your",
-    "are", "be", "as", "at", "by", "from", "or", "an", "&", ":", "-", "twitter:"
+    "are", "be", "as", "at", "by", "from", "or", "an", "&", ":", "-", 
+    "twitter:", "facebook:", "instagram:"
 }
 
 # def tokenize() - A function that ignores non-string characters and returns
@@ -41,16 +42,29 @@ def main():
         for token in token_list:
             all_tokens.append(token)
 
+    # Build bigrams
+    all_bigrams = []
+
+    for tokens in df["tokens"]:
+        # Form adjacent word pairs
+        bigrams = zip(tokens, tokens[1:])
+        all_bigrams.extend(bigrams)
+
     # Vocabulary size, set of all unique words used anywhere in the dataset
     vocab = set(all_tokens)
     print("\nVocabulary size:", len(vocab))
 
     # Proudce a frequency map to show the most common words
     counter = Counter(all_tokens)
-
     print("\nTop 20 most common words:")
     for word, count in counter.most_common(20):
         print(f"{word:15}{count}")
+
+    # Count bigram frequency
+    bigram_counts = Counter(all_bigrams)
+    print("\nTop 20 most common bigrams:")
+    for (w1, w2), count in bigram_counts.most_common(20):
+        print(f"{w1:15} {w2:15} {count:5}")
 
 if __name__ == "__main__":
     main()
