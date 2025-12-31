@@ -7,7 +7,7 @@ STOPWORDS = {
     "the", "and", "to", "of", "in", "a", "is", "on", "for", "with",
     "that", "this", "it", "you", "i", "my", "we", "our", "your",
     "are", "be", "as", "at", "by", "from", "or", "an", "&", ":", "-", 
-    "twitter:", "facebook:", "instagram:"
+    "twitter:", "facebook:", "instagram:", "►", "|", "*"
 }
 
 # def tokenize() - A function that ignores non-string characters and returns
@@ -53,6 +53,24 @@ def main():
     # Vocabulary size, set of all unique words used anywhere in the dataset
     vocab = set(all_tokens)
     print("\nVocabulary size:", len(vocab))
+
+    #
+    print("\nCategory-based top words:")
+
+    # Split df into smaller data frames, per unique "Category" value
+    for category, group in df.groupby("Category"):
+        tokens = [] # List to hold category tokens
+        # For each row in that category, add its token to the list
+        for row_tokens in group["tokens"]:
+            tokens.extend(row_tokens)
+
+        # Count word frequencies
+        counter = Counter(tokens)
+
+        # Print ten most common words in each category 
+        print(f"\nCategory: {category}")
+        for word, count in counter.most_common(10):
+            print(f"{word:15} {count}")
 
     # Proudce a frequency map to show the most common words
     counter = Counter(all_tokens)
