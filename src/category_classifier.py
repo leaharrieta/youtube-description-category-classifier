@@ -6,6 +6,15 @@ from sklearn.metrics import accuracy_score, classification_report
 
 INPUT_FILE = "data/cleaned_dataset.csv"
 
+# def predict_category() - A function to predict the category of a single description
+def predict_category(text, vectorizer, model):
+    # Convert text into a list
+    text_tfidf = vectorizer.transform([text])
+    # Predict category
+    prediction = model.predict(text_tfidf)
+    # Return category
+    return prediction[0]
+
 def main():
     df = pd.read_csv(INPUT_FILE)
     # Drop empty rows
@@ -50,6 +59,19 @@ def main():
     # To spot class imbalance
     print("Training category counts: ")
     print(y_train.value_counts())
+
+    # Take in user and evaluate their input using the model
+    print("\n--- Category Prediction CLI---")
+    print("Enter a YouTube description (or press Enter to quit):")
+
+    while True:
+        user_input = input("\n> ").strip()
+
+        if user_input == "":
+            break
+
+        predicted = predict_category(user_input, vectorizer, model)
+        print("Predicted category:", predicted)
 
 if __name__ == "__main__":
     main()
