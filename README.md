@@ -7,6 +7,7 @@ The system takes in raw, user generated text to which it cleans and preprocesses
 
 ----
 
+```bash
 ## File Structure
 youtube-description-category-classifier/
 ├── data/
@@ -24,6 +25,7 @@ youtube-description-category-classifier/
 │   ├── tfidf_analysis.py
 │   └── category_classifier.py
 └── README.md
+```
 
 ----
 
