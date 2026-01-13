@@ -1,3 +1,13 @@
+# FILE: category_classifier.py
+# AUTHOR: Leah Arrieta
+# EMAIL: leah.arrieta00@gmail.com
+# DATE: 1/9/25
+# DESCRIPTION: This file builds a supervised machine learning pipeline to
+#               predict Youtube video categories from description text. It performs a
+#               train test split, extracts TF-IDF features, trains a logistic regression
+#               classifier, evaluates model performance, and provides a command line
+#               interface for predicting categories of unseen descriptions.
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer

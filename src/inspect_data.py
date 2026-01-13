@@ -1,3 +1,13 @@
+# FILE: inspect_data.py
+# AUTHOR: Leah Arrieta
+# EMAIL: leah.arrieta00@gmail.com
+# DATE: 12/22/25
+# DESCRIPTION: This file serves as the initial inspection of the raw YouTube video dataset.
+#               The CSV file is loaded into a pandas DataFrame then, the dataset shape and
+#               column names are printed. Sample titles and descriptions are also printed to provide an
+#               overview of the data structure, content, and formatting before any cleaning
+#               or analysis is performed.
+
 # import pandas library and remane to pd
 import pandas as pd
 

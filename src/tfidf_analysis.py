@@ -1,3 +1,12 @@
+# FILE: tfidf_analay
+# AUTHOR: Leah Arrieta
+# EMAIL: leah.arrieta00@gmail.com
+# DATE: 1/6/26
+# DESCRIPTION: This file analyzes category level text data using TF-IDF by grouping 
+#               descriptions by category, transforming text into numerical feature vectors, 
+#               and then identifying the most important category specific terms. This gives 
+#               insight to feature relevance and model interpretability.
+
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer # To extract in a format supported by ML (text->numerical)
 

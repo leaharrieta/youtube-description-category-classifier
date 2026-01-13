@@ -6,6 +6,27 @@ This project implements an **end-to-end Natural Language Processing (NLP) and Ma
 The system takes in raw, user generated text to which it cleans and preprocesses it, converts it into numerical features using TF-IDF, trains a supervised machine learning classifier, evaluates its performance on unseen data, and supports real time category prediction through a command line interface (CLI).
 
 ----
+
+## File Structure
+youtube-description-category-classifier/
+├── data/
+│   ├── youtube_video_dataset.csv
+│   └── cleaned_dataset.csv
+├── images/
+│   └── example_output.png
+│   └── precision_recall_f1.png
+│   └── training_category_counts.png
+├── src/
+│   ├── clean_data.py
+│   ├── clean_data.py
+│   ├── analyze_text_lengths.py
+│   ├── text_stats.py
+│   ├── tfidf_analysis.py
+│   └── category_classifier.py
+└── README.md
+
+----
+
 ## Getting Started
 ### Dependencies
 Before running this project, ensure the following prerequisites are installed:

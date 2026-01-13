@@ -1,3 +1,12 @@
+# FILE: text_stats.py
+# AUTHOR: Leah Arrieta
+# EMAIL: leah.arrieta00@gmail.com
+# DATE: 12/29/25
+# DESCRIPTION: This file performs exploratory text analysis on the cleaned dataset. It tokenizes 
+#               descriptions, removes stopwords, computes word counts, vocabulary size, 
+#               and identifies the most frequent words across the dataset to better 
+#               understand the text structure, content distribution, and inform future decisions.
+
 import pandas as pd
 from collections import Counter
 

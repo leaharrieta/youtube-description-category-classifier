@@ -1,3 +1,13 @@
+# FILE: clean_data.py
+# AUTHOR: Leah Arrieta
+# EMAIL: leah.arrieta00@gmail.com
+# DATE: 12/26/25
+# DESCRIPTION: This file loads the raw youtube video dataset and performs data cleaning
+#               and preprocessing steps to prepare the text for analysis and machine learning.
+#               It removes missing values, strips URLs and emojis from text, normalizes
+#               whitespace, truncates long descriptions, and saves a cleaned dataset for
+#               downstream use.
+
 import pandas as pd
 import re
 

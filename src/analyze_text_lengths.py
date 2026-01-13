@@ -1,3 +1,12 @@
+# FILE: analyze_text_lengths.py
+# AUTHOR: Leah Arrieta
+# EMAIL: leah.arrieta00@gmail.com
+# DATE: 12/23/25
+# DESCRIPTION: This file examines text length characteristics of YouTube video titles and descriptions. 
+#               It computes summary statistics, percentiles, and identifies
+#               extremely long descriptions to inform preprocessing decisions such as
+#               maximum description length truncation.
+
 import pandas as pd
 
 file = "data/youtube_video_dataset.csv"
